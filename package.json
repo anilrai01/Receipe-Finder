@@ -4,11 +4,19 @@
   "description": "Forkify Food Receipe App",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --mode-development",
+    "build": "webpack --mode-production",
+    "start": "webpack-dev-server --mode-development --open"
   },
   "author": "Anil Rai",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.35.2"
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "live-server": "^1.2.1"
   }
 }
