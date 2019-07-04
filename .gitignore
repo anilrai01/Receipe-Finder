@@ -1,2 +1,5 @@
 # node modules and dependencies
 node_modules/*
+
+# distributed model
+dist/*
