@@ -11,6 +11,7 @@ module.exports = {
         contentBase: './dist',
     },
     mode: 'development',
+    
     plugins: [
         new HtmlWebPackPlugin({
             filename: 'index.html',
