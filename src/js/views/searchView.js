@@ -2,6 +2,14 @@ import { elements } from '../models/DOM';
 
 export const getChoice = () => elements.searchTitle.value;
 
+export const clearInput = () => {
+   elements.searchTitle.value = "";
+};
+
+export const clearSearch = () => {
+    elements.serchResList.innerHTML = "";
+}
+
 const dispRecipe = el => {
     const template = `
     <li>
