@@ -1,4 +1,4 @@
-import { elements } from './models/DOM';
+import { elements, preLoader, clearLoader } from './models/base';
 import Search from './models/Search';
 import * as searchView from './views/searchView';
 
@@ -24,12 +24,14 @@ const controlSearch = async () => {
         // Prepare UI like preloader 
         searchView.clearInput();
         searchView.clearSearch();
+        preLoader(elements.serchResList);
 
         // Search fro receipe
         await state.search.getReceipe();
 
         //Rendering the result on UI
         // console.log(state.search.result);
+        clearLoader();
         searchView.renderResults(state.search.result);
     }
 } 
@@ -37,5 +39,17 @@ const controlSearch = async () => {
 elements.searchForm.addEventListener('submit', e => {
     e.preventDefault();
     controlSearch();
-    
+});
+
+elements.searchResPag.addEventListener('click', el => {
+    const btn = el.target.closest('.btn-inline');
+    if (btn) {
+        const goToPage = btn.dataset.goto;
+        // console.log(goToPage);
+        searchView.clearSearch();
+        searchView.clearPag();
+        searchView.renderResults(state.search.result, goToPage);
+
+    }
+
 });
